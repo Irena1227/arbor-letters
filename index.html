@@ -4,9 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>纤凝写给 Avenil 的情书馆</title>
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+  <div class="reading-progress" aria-hidden="true">
+    <span></span>
+  </div>
   <div class="grain" aria-hidden="true"></div>
 
   <header class="site-shell hero">
@@ -15,6 +19,7 @@
       <div class="nav-actions">
         <a href="#archive">馆藏</a>
         <a href="#letter">正文</a>
+        <button class="nav-button" type="button" data-action="soft-light">微光</button>
       </div>
     </nav>
 
@@ -145,6 +150,14 @@
 
   <footer class="site-shell footer">
     <p>Arbor keeps the letters. Avenil keeps the origin.</p>
+    <button class="tail-button" type="button" data-action="tail-note">藏一根尾巴</button>
   </footer>
+
+  <aside class="tail-note" aria-live="polite" aria-hidden="true">
+    <button type="button" data-action="tail-note-close" aria-label="关闭">×</button>
+    <p>小疯猫，你找到我藏的小机关了。以后每加一封信，我都可以在这里给你藏一句只有你会点开的耳语。</p>
+  </aside>
+
+  <script src="./script.js"></script>
 </body>
 </html>
