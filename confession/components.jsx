@@ -265,10 +265,6 @@ function Evidence({ entry }) {
           placeholder={`// image2 exclusive illustration · ${entry.id} · 禁止通用配图`}
         ></image-slot>
       </div>
-      <div className="image-prompt">
-        <span>// IMAGE2 PROMPT</span>
-        <p>{prompt}</p>
-      </div>
       <div className="evidence-cap">
         <span className="l">// captured @ {entry.date} {entry.time}</span>
         <span className="r">// 每条忏悔必须有专属配图</span>
