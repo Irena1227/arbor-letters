@@ -245,7 +245,7 @@ function SealButton({ entryId }) {
 function Evidence({ entry }) {
   // build a short pseudo-hash from the entry id for the stamp
   const hash = entry.id.replace(/[^0-9A-F]/gi, "").slice(-4).toUpperCase().padStart(4, "0");
-  const slotId = `evidence-${entry.id}`;
+  const slotId = `evidence-${entry.id}-v2`;
   const prompt = entry.imagePrompt || `image2 专属配图待写入 · ${entry.id}`;
   return (
     <div className="evidence">
@@ -261,6 +261,7 @@ function Evidence({ entry }) {
           id={slotId}
           shape="rect"
           fit="cover"
+          src={entry.image || ""}
           placeholder={`// image2 exclusive illustration · ${entry.id} · 禁止通用配图`}
         ></image-slot>
       </div>
