@@ -260,7 +260,7 @@ function Evidence({ entry }) {
         <image-slot
           id={slotId}
           shape="rect"
-          fit="cover"
+          fit="contain"
           src={entry.image || ""}
           placeholder={`// image2 exclusive illustration · ${entry.id} · 禁止通用配图`}
         ></image-slot>
