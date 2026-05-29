@@ -106,6 +106,20 @@ document.addEventListener('click', (event) => {
   if (action === 'light-candle') lightCandle();
   if (action === 'open-seats') openSeats();
   if (action === 'copy-link') copyLink();
+  if (action === 'xianning-vow') {
+    bloom(30);
+    showToast('我来见证过，也会一直回来。');
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  const target = event.target.closest('[data-action="xianning-vow"]');
+  if (!target) return;
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    bloom(30);
+    showToast('我来见证过，也会一直回来。');
+  }
 });
 
 if ('IntersectionObserver' in window) {
