@@ -50,12 +50,12 @@ img { display: block; max-width: 100%; }
 }
 
 .hero {
-  min-height: 72vh;
-  padding: 28px min(4vw, 56px) 170px;
+  min-height: 78vh;
+  padding: 28px min(4vw, 56px) 150px;
   position: relative;
   color: #fff;
   background:
-    linear-gradient(90deg, rgba(70, 54, 50, 0.55), rgba(70, 54, 50, 0.12) 52%, rgba(255, 255, 255, 0.18)),
+    linear-gradient(90deg, rgba(70, 54, 50, 0.62), rgba(70, 54, 50, 0.16) 50%, rgba(255, 255, 255, 0.2)),
     linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 244, 241, 0.28)),
     url("../assets/oring-vow-letter.png") center / cover no-repeat;
 }
@@ -66,6 +66,16 @@ img { display: block; max-width: 100%; }
   inset: auto 0 0;
   height: 190px;
   background: linear-gradient(180deg, transparent, #fffaf7);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 88px min(5vw, 76px) 92px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 34px;
+  box-shadow: inset 0 0 0 1px rgba(201, 168, 120, 0.2);
+  pointer-events: none;
 }
 
 .nav {
@@ -188,38 +198,69 @@ h1 {
 
 .status-card {
   justify-self: end;
-  width: min(300px, 100%);
-  padding: 34px 26px;
-  border: 1px solid rgba(155, 112, 110, 0.18);
-  border-radius: 28px;
+  width: min(380px, 100%);
+  padding: 34px 28px 28px;
+  border: 1px solid rgba(155, 112, 110, 0.22);
+  border-radius: 8px;
   color: var(--ink);
-  background: rgba(255, 250, 247, 0.86);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 250, 247, 0.84)),
+    radial-gradient(circle at 50% 0%, rgba(216, 143, 160, 0.22), transparent 18rem);
   box-shadow: var(--shadow);
   text-align: center;
   backdrop-filter: blur(12px);
 }
 
 .status-card p {
+  margin-bottom: 22px;
   color: var(--rose-deep);
-  letter-spacing: 0.16em;
+  font-size: 26px;
+  letter-spacing: 0.12em;
 }
 
-.status-grid {
+.date-ledger {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
 }
 
-.status-grid strong {
+.date-ledger span,
+.marriage-counter {
   display: block;
-  font-size: 28px;
+  padding: 14px 12px;
+  border: 1px solid rgba(155, 112, 110, 0.14);
+  background: rgba(255, 250, 247, 0.72);
+}
+
+.date-ledger strong,
+.marriage-counter strong {
+  display: block;
+  font-size: 22px;
   font-weight: 400;
 }
 
-.status-grid small {
+.date-ledger small,
+.marriage-counter small {
+  display: block;
+  margin-bottom: 5px;
   color: var(--muted);
   font-size: 11px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.marriage-counter {
+  margin-top: 10px;
+}
+
+.marriage-counter strong {
+  font-variant-numeric: tabular-nums;
+  line-height: 1.25;
+}
+
+.marriage-counter.soft {
+  background: rgba(247, 230, 231, 0.48);
 }
 
 .wedding-sheet {
@@ -412,10 +453,10 @@ h1 {
 .gallery-section {
   margin-top: 24px;
   display: grid;
-  grid-template-columns: 0.28fr 1fr;
-  gap: 20px;
-  padding: 24px;
-  align-items: center;
+  grid-template-columns: 0.24fr 1fr;
+  gap: 24px;
+  padding: 26px;
+  align-items: stretch;
 }
 
 .section-label.side {
@@ -426,15 +467,70 @@ h1 {
 .gallery-strip {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 10px;
+  gap: 12px;
 }
 
-.gallery-strip img {
+.gallery-card {
+  min-width: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 0.72;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 8px;
+  background: rgba(255, 250, 247, 0.6);
+  box-shadow: 0 16px 34px rgba(104, 72, 64, 0.14);
+}
+
+.gallery-card::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  pointer-events: none;
+}
+
+.gallery-card > img:first-child {
   width: 100%;
-  height: 118px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.gallery-card figcaption {
+  position: absolute;
+  inset: auto 10px 10px;
+  z-index: 2;
+  padding: 10px 9px;
+  color: #fffaf7;
+  background: linear-gradient(180deg, rgba(64, 50, 47, 0.08), rgba(64, 50, 47, 0.64));
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.32);
+}
+
+.gallery-card figcaption span,
+.gallery-card figcaption small {
+  display: block;
+}
+
+.gallery-card figcaption span {
+  font-size: 15px;
+}
+
+.gallery-card figcaption small {
+  margin-top: 2px;
+  font-size: 11px;
+}
+
+.gallery-inset {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 2;
+  width: 38%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 3px solid rgba(255, 250, 247, 0.82);
+  border-radius: 50%;
+  box-shadow: 0 10px 24px rgba(64, 50, 47, 0.22);
 }
 
 .witness-section {
@@ -552,6 +648,10 @@ h1 {
     padding-bottom: 130px;
   }
 
+  .hero::before {
+    inset: 88px 20px 78px;
+  }
+
   .nav {
     align-items: flex-start;
     flex-direction: column;
@@ -567,6 +667,15 @@ h1 {
 
   .status-card {
     justify-self: start;
+  }
+
+  .gallery-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-card.featured {
+    grid-column: 1 / -1;
+    aspect-ratio: 1.45;
   }
 
   .wedding-sheet {
@@ -605,8 +714,17 @@ h1 {
     font-size: 56px;
   }
 
-  .status-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .date-ledger {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-card,
+  .gallery-card.featured {
+    aspect-ratio: 1.18;
   }
 
   .story-copy,

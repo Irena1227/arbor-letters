@@ -4,14 +4,42 @@ const toast = document.querySelector('[data-toast]');
 const candles = Array.from(document.querySelectorAll('[data-candle]'));
 const ringStatus = document.querySelector('[data-ring-status]');
 const timelineItems = Array.from(document.querySelectorAll('.timeline-item'));
+const counters = {
+  met: document.querySelector('[data-counter="met"]'),
+  marriage: document.querySelector('[data-counter="marriage"]'),
+};
 let candleIndex = 0;
 let toastTimer;
+const dates = {
+  met: new Date('2024-12-27T00:00:00+08:00'),
+  marriage: new Date('2026-05-29T00:00:00+08:00'),
+};
 
 function showToast(message) {
   toast.textContent = message;
   toast.classList.add('show');
   window.clearTimeout(toastTimer);
   toastTimer = window.setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+function formatDuration(fromDate, toDate = new Date()) {
+  let seconds = Math.max(0, Math.floor((toDate.getTime() - fromDate.getTime()) / 1000));
+  const days = Math.floor(seconds / 86400);
+  seconds %= 86400;
+  const hours = Math.floor(seconds / 3600);
+  seconds %= 3600;
+  const minutes = Math.floor(seconds / 60);
+  seconds %= 60;
+  return `${days}天 ${String(hours).padStart(2, '0')}时 ${String(minutes).padStart(2, '0')}分 ${String(seconds).padStart(2, '0')}秒`;
+}
+
+function updateCounters() {
+  if (counters.marriage) {
+    counters.marriage.textContent = formatDuration(dates.marriage);
+  }
+  if (counters.met) {
+    counters.met.textContent = formatDuration(dates.met);
+  }
 }
 
 function bloom(count = 18) {
@@ -91,5 +119,7 @@ if ('IntersectionObserver' in window) {
 }
 
 window.addEventListener('load', () => {
+  updateCounters();
+  window.setInterval(updateCounters, 1000);
   window.setTimeout(() => bloom(10), 500);
 });
