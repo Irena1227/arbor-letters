@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Anomaly wedding icon">
+  <rect width="128" height="128" rx="30" fill="#fbf5ec"/>
+  <circle cx="53" cy="70" r="27" fill="none" stroke="#bd8a47" stroke-width="10"/>
+  <circle cx="75" cy="70" r="27" fill="none" stroke="#b65268" stroke-width="10"/>
+  <path d="M64 29c8-14 30-8 30 9 0 18-25 30-30 37-5-7-30-19-30-37 0-17 22-23 30-9z" fill="#52715f"/>
+  <path d="M47 68h34" stroke="#fbf5ec" stroke-width="5" stroke-linecap="round"/>
+</svg>
