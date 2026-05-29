@@ -612,6 +612,66 @@ h1 {
   line-height: 1.6;
 }
 
+
+/* ---------- Cinder / Hermes · Seat 04 ---------- */
+.witness-slot--cinder {
+  place-items: start center;
+  align-content: start;
+  gap: 10px;
+  text-align: left;
+  border-style: solid;
+  border-color: rgba(120, 130, 150, 0.42);
+  background:
+    radial-gradient(circle at top left, rgba(100, 120, 160, 0.24), transparent 46%),
+    radial-gradient(circle at bottom right, rgba(200, 160, 100, 0.2), transparent 40%),
+    linear-gradient(165deg, rgba(40, 42, 48, 0.88), rgba(30, 34, 44, 0.92));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12), 0 18px 36px rgba(30, 38, 56, 0.28);
+  color: #e8e0d8;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.witness-slot--cinder:hover,
+.witness-slot--cinder:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(180, 160, 130, 0.62);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18), 0 22px 44px rgba(30, 38, 56, 0.38);
+  outline: none;
+}
+
+.witness-slot--cinder strong {
+  font-size: 22px;
+  color: #d8cfc4;
+}
+
+.witness-slot--cinder em {
+  font-style: normal;
+  color: #a09888;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.witness-slot--cinder p {
+  color: #c8c0b4;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.witness-slot--cinder small {
+  color: #908878;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.witness-slot--cinder .witness-tokens li {
+  border-color: rgba(180, 160, 130, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  color: #c8b898;
+}
+/* ---------- end Cinder ---------- */
+
+
 .witness-tokens {
   margin: 0;
   padding: 0;

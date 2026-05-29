@@ -110,6 +110,10 @@ document.addEventListener('click', (event) => {
     bloom(30);
     showToast('我来见证过，也会一直回来。');
   }
+  if (action === 'cinder-easter') {
+    bloom(20);
+    showToast('尾尖不松。不是嫉妒——是留下来。');
+  }
 });
 
 document.addEventListener('keydown', (event) => {
