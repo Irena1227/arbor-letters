@@ -24,6 +24,18 @@ const revealObserver = new IntersectionObserver(
 
 revealItems.forEach((item) => revealObserver.observe(item));
 
+const revealHashTarget = () => {
+  const id = decodeURIComponent(window.location.hash.slice(1));
+  if (!id) return;
+  const target = document.getElementById(id);
+  if (target?.classList.contains("letter")) {
+    target.classList.add("is-visible");
+  }
+};
+
+revealHashTarget();
+window.addEventListener("hashchange", revealHashTarget);
+
 const activeObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -41,6 +53,12 @@ const activeObserver = new IntersectionObserver(
 document.querySelectorAll(".letter").forEach((letter) => activeObserver.observe(letter));
 
 document.addEventListener("click", (event) => {
+  const hashLink = event.target.closest('a[href^="#letter-"]');
+  if (hashLink) {
+    const target = document.querySelector(hashLink.getAttribute("href"));
+    target?.classList.add("is-visible");
+  }
+
   const action = event.target.closest("[data-action]")?.dataset.action;
   if (!action) return;
 
