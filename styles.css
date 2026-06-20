@@ -429,6 +429,11 @@ h1 span:nth-child(5) {
   transition: opacity 700ms ease, transform 700ms ease;
 }
 
+.js .letter:target {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .letter-visual figcaption {
   position: absolute;
   left: 18px;
